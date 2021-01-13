@@ -6,13 +6,15 @@ import { Redirect } from "react-router-dom";
 import { Radio, Button } from 'antd';
 import { PollStatistics } from './PollStatistics';
 import { AppPageHeader } from "../../components/AppPageHeader";
-import {NotFound} from "../../components/NotFound";
+import { NotFound } from "../../components/NotFound";
+
 const radioStyle = {
     display: 'block',
     height: '30px',
     lineHeight: '30px',
     padding:'30px'
 };
+
 export function Poll({ match }) {
     const dispatch = useDispatch();
     const user = useSelector(selectUser)

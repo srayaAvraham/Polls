@@ -5,7 +5,7 @@ import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { addPoll } from './pollsListSlice';
 import { nanoid } from 'nanoid';
 import { selectUser } from '../users/usersSlice';
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { AppPageHeader } from "../../components/AppPageHeader";
 const formItemLayout = {
     labelCol: { span: 4 },
