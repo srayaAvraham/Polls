@@ -3,7 +3,6 @@ import { useDispatch,useSelector } from 'react-redux'
 import { Form, Input, Button, } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { addPoll } from './pollsListSlice';
-import { nanoid } from 'nanoid';
 import { selectUser } from '../users/usersSlice';
 import { Redirect } from "react-router-dom";
 import { AppPageHeader } from "../../components/AppPageHeader";
@@ -20,18 +19,7 @@ export const AddPoll = () => {
     const dispatch = useDispatch();
     const user = useSelector(selectUser)
     const [form] = Form.useForm();
-    const pollObj = ({ question, choices }) => {
-        const id = nanoid()
-        return {
-            id, question, choices: choices.map((choice, i) => {
-                return {
-                    id: i,
-                    vote: 0,
-                    choice
-                }
-            })
-        }
-    }
+   
     const onFinish = (values) => {
         //const poll = pollObj(values)
         dispatch(addPoll({...values, user}))

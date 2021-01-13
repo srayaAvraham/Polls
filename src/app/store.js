@@ -1,7 +1,7 @@
 import { configureStore, getDefaultMiddleware  } from '@reduxjs/toolkit';
 import pollsReducer from '../features/polls/pollsListSlice';
 import usersReducer from '../features/users/usersSlice'
-import { persistStore, persistReducer,  FLUSH,
+import { persistReducer,  FLUSH,
   REHYDRATE,
   PAUSE,
   PERSIST,

@@ -37,7 +37,7 @@ export function PollsList() {
                         <List.Item.Meta
                             title={<Link to={`/polls/${item.id}`}
                             >
-                                {item.question.substring(0, 30)}
+                                {item.question}
                             </Link>}
                             avatar={<Avatar style={{ backgroundColor: '#1890ff', verticalAlign: 'middle' }} size="large">
                                 {item.creator}

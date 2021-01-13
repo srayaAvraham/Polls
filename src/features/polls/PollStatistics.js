@@ -12,7 +12,7 @@ export const PollStatistics = ({choices}) => {
     legend: { position: 'top-left' },
     yAxis:{
         label:{
-            formatter: (choice) => choice.substring(0, 30) + '...'
+            formatter: (choice) => choice.substring(0, 60)
         },
     } 
   };
