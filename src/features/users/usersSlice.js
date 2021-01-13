@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+import  {vote}  from '../polls/pollsListSlice'
 const initialState = {
     allUsers: [],
     loginUser: null
@@ -21,7 +21,9 @@ const usersSlice = createSlice({
         logout: (state, action) => {
             state.loginUser = null;
         },
-        userVote: (state, action) => {
+    },
+    extraReducers: {
+        [vote]: (state, action) => {
             const user = state.allUsers.find(user => user.nickname === action.payload.user.nickname);
             if (!user.pollsVote.includes(action.payload.pollId)) {
                 if (user) {
@@ -31,12 +33,11 @@ const usersSlice = createSlice({
                     state.loginUser.pollsVote.push(action.payload.pollId)
                 }
             }
-
         }
     }
 })
 
-export const { login, logout, userVote } = usersSlice.actions;
+export const { login, logout } = usersSlice.actions;
 
 export const selectUser = state => state.users.loginUser;
 

@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
-import {
-    userVote
-} from '../users/usersSlice';
+
 export const pollsSlice = createSlice({
     name: 'polls',
     initialState: [],
@@ -46,19 +44,9 @@ export const pollsSlice = createSlice({
                 }
             }
         }
-    },
+    }
 });
 
-const { vote } = pollsSlice.actions;
-export const voteAndUpdateUser = ({ pollId, choiceId, user }) => async dispatch => {
-    try {
-        await dispatch(vote({ pollId, choiceId }))
-        dispatch(userVote({ pollId, user }))
-    } catch (e) {
-        return console.error(e.message);
-    }
-}
-export const { addPoll, deletePoll } = pollsSlice.actions;
+export const { addPoll, deletePoll,vote } = pollsSlice.actions;
 export const selectPolls = state => state.polls;
-
 export default pollsSlice.reducer;

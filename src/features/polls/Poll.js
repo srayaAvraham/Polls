@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { voteAndUpdateUser } from './pollsListSlice';
+import { vote } from './pollsListSlice';
 import { selectUser } from '../users/usersSlice';
 import { Redirect } from "react-router-dom";
 import { Radio, Button } from 'antd';
@@ -31,7 +31,7 @@ export function Poll({ match }) {
     }
 
     const saveVote = () => {
-        dispatch(voteAndUpdateUser({ pollId, choiceId, user }))
+        dispatch(vote({ pollId, choiceId, user }))
     }
 
     if (!user) {
